@@ -116,13 +116,13 @@ def cal_move(move , old_space_pos, board):
     clear()
     v_pos , h_pos = old_space_pos
     invalid_move = False
-    if move == "s":
+    if move == "s" or move == "k" or move == "2":
         new_space_pos = (v_pos+1 , h_pos)
-    elif move == "w":
+    elif move == "w" or move == "i" or move == "8":
         new_space_pos = (v_pos -1, h_pos)
-    elif move == "d":
+    elif move == "d" or move == "l" or move == "6":
         new_space_pos = (v_pos, h_pos+1)
-    elif move == "a":
+    elif move == "a" or move == "j" or move == "4":
         new_space_pos = (v_pos, h_pos-1)
     else:
         new_space_pos = (v_pos, h_pos)

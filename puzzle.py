@@ -142,13 +142,15 @@ def cal_move(move , old_space_pos, board):
 clear()
 print("Welcome to puzzle game")
 print_rules()
-print("Choose your level: Easy or Hard")
+print("Choose your level: Easy or Hard or Custom")
 level = input()
 level = level.lower()
 if level == "easy":
     size = 3
 elif level == "hard":
     size = 4
+elif level == "custom":
+    size = int(input("Enter any number in between 3 and 10"))
 values = render_board(size)
 print("Your board is below:")
 print_board(values)

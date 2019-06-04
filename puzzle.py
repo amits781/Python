@@ -4,9 +4,8 @@ from os import system, name
 from time import sleep 
 
 
-#for clearing the screen
+# for clearing the screen
 def clear(): 
-  
     # for windows 
     if name == 'nt': 
         _ = system('cls') 
@@ -15,7 +14,7 @@ def clear():
     else: 
         _ = system('clear') 
 
-#for printing animated loading progress
+# for printing animated loading progress
 def loading_message(message_to_print):
     for i in range (5):
         clear() 
@@ -24,7 +23,7 @@ def loading_message(message_to_print):
     clear()
 
 
-#printing rules of the game
+# printing rules of the game
 def print_rules():
     print("Here are the rules for the game:")
     print("\tYou'll need to select a level, easy gives you 3x3 board and hard gives you 4x4 board")
@@ -34,7 +33,7 @@ def print_rules():
     input("Press enter to continue")
     clear()
 
-#creates a new board in order of given size
+# creates a new board in order of given size
 def render_board (size):
     loading_message("Loading Board")
     my_new_board = []
@@ -49,8 +48,8 @@ def render_board (size):
     return my_new_board
 
 
-#to find the inversion count
-#used for determining if puzzle is solvable
+# to find the inversion count
+# used for determining if puzzle is solvable
 def find_inversion_count(elements_array):
     count = 0
     for i in range (len(elements_array)-1):
@@ -60,8 +59,8 @@ def find_inversion_count(elements_array):
     
     return count
 
-#creates a new shuffled board
-#ensures that the puzzle is solvable
+# creates a new shuffled board
+# ensures that the puzzle is solvable
 def shuffle_board(board):
     loading_message("Shuffling")
     all_elements = []
@@ -91,7 +90,7 @@ def shuffle_board(board):
 
     return shuffled_board
 
-#returns the index of space
+# returns the index of space
 def find_space(board):
     blank_index = {'row_index': -1, 'col_index': -1}
     flag = False
@@ -107,12 +106,12 @@ def find_space(board):
     return int(blank_index['row_index']),int(blank_index['col_index'])
 
 
-#prints the board
+# prints the board
 def print_board(board):
     for row in board:
         print(row)
 
-#checks for valid move and implements it on board
+# checks for valid move and implements it on board
 def cal_move(move , old_space_pos, board):
     clear()
     v_pos , h_pos = old_space_pos
@@ -139,7 +138,7 @@ def cal_move(move , old_space_pos, board):
     board[v_pos][h_pos] , board[new_v_pos][new_h_pos] = board[new_v_pos][new_h_pos] , board[v_pos][h_pos]
     return new_space_pos
 
-#game starts here
+# game starts here
 clear()
 print("Welcome to puzzle game")
 print_rules()
